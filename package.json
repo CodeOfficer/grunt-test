@@ -1,5 +1,11 @@
 {
   "name": "ember-test",
   "author": {},
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {
+    "grunt": "~0.4.0a",
+    "grunt-contrib-concat": "~0.1.1",
+    "grunt-ember-templates": "~0.2.0"
+  },
+  "devDependencies": {}
 }
