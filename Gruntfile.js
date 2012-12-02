@@ -9,10 +9,6 @@ module.exports = function(grunt) {
       files: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js']
     },
 
-    qunit: {
-      files: ['test/**/*.html']
-    },
-
     concat: {
       lib: {
         src: [
@@ -41,7 +37,7 @@ module.exports = function(grunt) {
 
     watch: {
       files: '<config:lint.files>',
-      tasks: 'lint qunit'
+      tasks: 'lint'
     },
 
     jshint: {
@@ -85,7 +81,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint qunit concat min ember_templates');
+  grunt.registerTask('default', 'lint concat min ember_templates');
 
   grunt.loadNpmTasks('grunt-ember-templates');
 };
