@@ -15,7 +15,7 @@ module.exports = function(grunt) {
           'lib/<%= pkg.name %>.js',
           'lib/**/*.js'
         ],
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: 'build/<%= pkg.name %>.js'
       },
       vendor: {
         src: [
@@ -24,14 +24,14 @@ module.exports = function(grunt) {
           'vendor/ember.js',
           'vendor/ember-data.js'
         ],
-        dest: 'dist/vendor.js'
+        dest: 'build/vendor.js'
       }
     },
 
     min: {
       lib: {
         src: ['<config:concat.lib.dest>'],
-        dest: 'dist/<%= pkg.name %>.min.js'
+        dest: 'build/<%= pkg.name %>.min.js'
       }
     },
 
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          "dist/templates.js": "lib/templates/**/*.handlebars"
+          "build/templates.js": "lib/templates/**/*.handlebars"
         }
       }
     }
