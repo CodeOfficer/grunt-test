@@ -72,11 +72,11 @@ module.exports = function(grunt) {
       compile: {
         options: {
           templateName: function(sourceFile) {
-            return sourceFile.replace(/path\/to\//, '');
+            return sourceFile.replace(/lib\/templates\//, '');
           }
         },
         files: {
-          "dist/templates.js": "templates/**/*.handlebars"
+          "dist/templates.js": "lib/templates/**/*.handlebars"
         }
       }
     }
