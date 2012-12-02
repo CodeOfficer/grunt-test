@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     pkg: '<json:package.json>',
 
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
+      files: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js']
     },
 
     qunit: {
@@ -14,6 +14,13 @@ module.exports = function(grunt) {
     },
 
     concat: {
+      lib: {
+        src: [
+          'lib/<%= pkg.name %>.js',
+          'lib/**/*.js'
+        ],
+        dest: 'dist/<%= pkg.name %>.js'
+      },
       vendor: {
         src: [
           'vendor/jquery.min.js',
@@ -22,19 +29,12 @@ module.exports = function(grunt) {
           'vendor/ember-data.js'
         ],
         dest: 'dist/vendor.js'
-      },
-      app: {
-        src: [
-          'lib/<%= pkg.name %>.js',
-          'lib/**/*.js'
-        ],
-        dest: 'dist/<%= pkg.name %>.js'
       }
     },
 
     min: {
-      app: {
-        src: ['<config:concat.app.dest>'],
+      lib: {
+        src: ['<config:concat.lib.dest>'],
         dest: 'dist/<%= pkg.name %>.min.js'
       }
     },
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'ember_templates lint qunit concat min');
+  grunt.registerTask('default', 'lint qunit concat min ember_templates');
 
   grunt.loadNpmTasks('grunt-ember-templates');
 };
